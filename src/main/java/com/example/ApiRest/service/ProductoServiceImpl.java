@@ -4,6 +4,7 @@ import com.example.ApiRest.entidad.Producto;
 import com.example.ApiRest.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
 
+import javax.management.RuntimeErrorException;
 import java.util.List;
 
 @Service
@@ -28,4 +29,17 @@ public class ProductoServiceImpl implements ProductoService{
     public Producto findById(Integer id) {
         return  repository.findById(id).orElse(null);
     }
+
+    @Override
+    public Producto update(Producto producto) {
+        Producto prDB = repository.findById(producto.getIdProducto())
+                .orElseThrow(()-> new RuntimeException("Producto No Encontrado"));
+
+            prDB.setNombProducto(producto.getNombProducto());
+            prDB.setPrecProducto(producto.getPrecProducto());
+            prDB.setStock(producto.getStock());
+
+        return repository.save(prDB);
+    }
+
 }

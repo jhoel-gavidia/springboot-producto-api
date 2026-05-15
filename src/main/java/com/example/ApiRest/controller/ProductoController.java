@@ -30,4 +30,9 @@ public class ProductoController {
     public Producto findById(@PathVariable Integer id) {
         return  service.findById(id);
     }
+
+    @PutMapping
+    public Producto update(@RequestBody Producto producto) {
+        return service.update(producto);
+    }
 }
