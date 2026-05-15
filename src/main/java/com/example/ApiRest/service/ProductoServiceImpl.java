@@ -42,4 +42,11 @@ public class ProductoServiceImpl implements ProductoService{
         return repository.save(prDB);
     }
 
+    @Override
+    public void delteById(Integer id) {
+        if(!repository.existsById(id)) {
+            throw new RuntimeException("Producto no encontrado");
+        }
+        repository.deleteById(id);
+    }
 }

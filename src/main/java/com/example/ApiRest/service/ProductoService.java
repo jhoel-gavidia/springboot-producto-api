@@ -9,4 +9,5 @@ public interface ProductoService {
     List<Producto> findAll();
     Producto findById(Integer id);
     Producto update(Producto producto);
+    void delteById(Integer id);
 }

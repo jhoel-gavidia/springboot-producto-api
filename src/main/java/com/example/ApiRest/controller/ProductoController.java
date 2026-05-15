@@ -2,6 +2,7 @@ package com.example.ApiRest.controller;
 
 import com.example.ApiRest.entidad.Producto;
 import com.example.ApiRest.service.ProductoService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +35,11 @@ public class ProductoController {
     @PutMapping
     public Producto update(@RequestBody Producto producto) {
         return service.update(producto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
+        service.delteById(id);
+        return  ResponseEntity.noContent().build();
     }
 }
