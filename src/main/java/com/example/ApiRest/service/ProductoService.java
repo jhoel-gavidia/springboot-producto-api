@@ -1,0 +1,10 @@
+package com.example.ApiRest.service;
+
+import com.example.ApiRest.entidad.Producto;
+
+import java.util.List;
+
+public interface ProductoService {
+    Producto save(Producto producto);
+    List<Producto> findAll();
+}
