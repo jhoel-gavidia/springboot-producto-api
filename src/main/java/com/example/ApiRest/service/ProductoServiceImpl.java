@@ -23,4 +23,9 @@ public class ProductoServiceImpl implements ProductoService{
     public List<Producto> findAll() {
         return repository.findAll();
     }
+
+    @Override
+    public Producto findById(Integer id) {
+        return  repository.findById(id).orElse(null);
+    }
 }
